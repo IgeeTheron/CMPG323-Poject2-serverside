@@ -1,31 +1,31 @@
-<div class="row mt-5">
-    <div class="col-md-6 m-auto">
-      <div class="card card-body">
-        <h1 class="text-center mb-3"><i class="fas fa-user"></i>  Welcome <%= name %></h1>
-        <%- include ('./partials/messages') %>
-
-        <!-- Insert under File add -->
-        <!-- Add method="POST" next to form action -->
-        <form action="/dashboard">
-          <div class="form-group">
-            <label for="file">File</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="form-control"
-              placeholder="Enter Email"
-            />
-          </div>
-          <!-- Inseert above file add -->
-
-          <button type="submit" class="btn btn-primary btn-block">Add File</button>
-          <a href="/users/logout" class="btn btn-secondary btn-block">Logout</a>
-        </form>
+<div class="row">
+  <div class="col-md-6 m-auto">
+    <h1 class="text-center display-4 my-4"><i class="fas fa-user"></i>  Welcome <%= user.name %></h1>
+    <%- include ('./partials/messages') %>
+    <form action="/dashboard" method="POST" enctype="multipart/form-data">
+      <div class="custom-file mb-3">
+        <input type="file" name="file" id="file" class="custom-file-input">
+        <label for="file" class="custom-file-label">Choose File</label>
       </div>
-    </div>
+      <input type="submit" value="UploadFile" name="submit" class="btn btn-primary btn-block">
+      <a href="/users/logout" class="btn btn-secondary btn-block">Logout</a>
+    </form>
+    <br>
+    <% databaseData.forEach(function(databaseData) { %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <% if (databaseData.lenth < 1) { %>
+            <p> No data in database</p>
+          <%} else { %>
+            <p>mongoDB _id: <%= databaseData._id %></p>
+            <p>SA ID Number: <%= databaseData.idNumber %></p>
+            <p>First Name: <%= databaseData.firstName %></p>
+            <p>Last Name: <%= databaseData.lastName %></p>
+            <p>Email: <%= databaseData.email %></p>
+          <% } %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+    <% }); %>
   </div>
-
-<h1 class="mt-4">Dashbaord</h1>
-<p class="lead mb-3">Welcome <%= name %></p>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+</div>

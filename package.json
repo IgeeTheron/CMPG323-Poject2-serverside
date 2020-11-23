@@ -22,12 +22,18 @@
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "ejs": "^3.1.5",
+    "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.1",
+    "fs": "0.0.1-security",
     "mongoose": "^5.10.15",
+    "multer": "^1.4.2",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "south-africa-national-id-validation": "^3.1.1",
+    "validator-sa": "^0.2.4",
+    "xlsx": "^0.16.9"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

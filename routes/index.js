@@ -55,8 +55,6 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
         .catch(err => console.log(err));
 });
 
-var nameOfF = '';
-
 router.post('/dashboard', (req, res) => {
     uploud(req, res, (err) => {
         if (err) {
